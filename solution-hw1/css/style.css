@@ -78,6 +78,10 @@ h1 {
     align-items:start
 }
 
+.product-gallery-content a:hover {
+    background-color: yellow;
+}
+
 .shopping-cart-item {
     margin: 0px 0px 52px 0px;
     display: flex;
