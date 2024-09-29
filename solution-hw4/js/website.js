@@ -141,7 +141,7 @@ let addToCartButtonElement = document.getElementById('add-to-cart-btn');
 
 
 /*
-Capturing the current glaze and current pack size. 
+Capturing the current glaze and current pack size by getting the text of the currently selected option. 
 Creating an instance of the class Roll which contains the current product information.
 Pushing the new cart item into the cart array. 
 */
