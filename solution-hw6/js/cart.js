@@ -64,7 +64,6 @@ function updateElement(item) {
     typeElement.innerText = item.type + " Cinnamon Roll";
     glazingElement.innerText = "Glazing: " + item.glazing;
     packSizeElement.innerText = "Pack Size: " + item.size;
-   // priceElement.innerText = "$" + item.itemPrice;
     priceElement.innerText = "$" + calculateItemPrice(item);
     removeElement.innerText = "Remove";
 };
