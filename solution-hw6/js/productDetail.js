@@ -24,7 +24,7 @@ function populateGlazingDropdown() {
         menuOption.text = glazingOptions[i].option;
         menuOption.value = glazingOptions[i].option;
         glazingOptionsElement.add(menuOption);
-    }
+    };
 };
 populateGlazingDropdown(); 
 
@@ -37,7 +37,7 @@ function populatePackSizeDropdown() {
         menuOption.text = packSizeOptions[i].size;
         menuOption.value = packSizeOptions[i].size;
         packSizeOptionsElement.add(menuOption);
-    }
+    };
 };
 populatePackSizeDropdown();
 
@@ -76,7 +76,7 @@ function updatePrice() {
     let totalPrice = (basePrice + glazingPrice) * packSizePrice;
     console.log("total price: " + totalPrice.toFixed(2));
     totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
-}
+};
 
 
 //Updating the header text with the name of the cinnamon roll. 
@@ -110,7 +110,7 @@ function addToCart() {
     saveToLocalStorage();
     console.log(cart);
 }
-addToCartButtonElement.addEventListener('click', addToCart)
+addToCartButtonElement.addEventListener('click', addToCart);
 
 
 /* References
