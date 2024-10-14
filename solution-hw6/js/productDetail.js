@@ -1,169 +1,115 @@
-
-/*
-Creating objects to represent price adaptations based on user selections.
-Each object is an array consisting of dictionaries mapping user selection with price adaptation.
-*/
+//Retrieving the cart from local storage.
+retrieveFromLocalStorage();
 
 
-const glazingOptions = [
-    {option: "Keep Original", priceAdaptation: 0}, 
-    {option: "Sugar Milk", priceAdaptation: 0},
-    {option: "Vanilla Milk", priceAdaptation: 0.5},
-    {option: "Double Chocolate", priceAdaptation: 1.5},
-];
-
-const packSizeOptions = [
-    {size: 1, priceAdaptation: 1}, 
-    {size: 3, priceAdaptation: 3},
-    {size: 6, priceAdaptation: 5},
-    {size: 12, priceAdaptation: 10},
-];
-
-
-//Creating the class Roll.
-
-class Roll {
-    constructor(rollType, rollGlazing, packSize, basePrice) {
-        this.type = rollType;
-        this.glazing =  rollGlazing;
-        this.size = packSize;
-        this.basePrice = basePrice;
-    }
-}
-
-
-//Getting the role type from the URL. Creating the cart array.
-
+//Getting the role type from the URL. 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get('roll');
-let cart = [];
 
 
-/*
-Creating variables for basePrice, glazingPrice, and packSizePrice. 
-glazingPrice and packSizePrice will update when we do the price calculations.
-*/
+//Creating variables for basePrice, glazingPrice, and packSizePrice. 
+//glazingPrice and packSizePrice will update when we do the price calculations.
 
 let basePrice = rolls[rollType].basePrice;
 let glazingPrice = 0;
 let packSizePrice = 1;
 
 
-//Accessing the HTML element for the glazing drop down menu. Populating the drop down menu with a for loop. 
-
+//Populating the drop down menu with a for loop. 
 let glazingOptionsElement = document.getElementById('glazingOptions');
-
 function populateGlazingDropdown() {
     for (i = 0; i < glazingOptions.length; i++) {
         let menuOption = document.createElement('option');
-        menuOption.textContent = glazingOptions[i].option;
-        menuOption.value = glazingOptions[i].priceAdaptation;
+        menuOption.text = glazingOptions[i].option;
+        menuOption.value = glazingOptions[i].option;
         glazingOptionsElement.add(menuOption);
     }
 };
+populateGlazingDropdown(); 
 
 
-//Accessing the HTML element for the pack size drop down menu. Populating the drop down menu with a for loop. 
-
+//Populating the drop down menu with a for loop. 
 let packSizeOptionsElement = document.getElementById('packSizeOptions');
-
 function populatePackSizeDropdown() {
     for (i = 0; i < packSizeOptions.length; i++) {
         let menuOption = document.createElement('option');
-        menuOption.textContent = packSizeOptions[i].size;
-        menuOption.value = packSizeOptions[i].priceAdaptation;
+        menuOption.text = packSizeOptions[i].size;
+        menuOption.value = packSizeOptions[i].size;
         packSizeOptionsElement.add(menuOption);
     }
 };
+populatePackSizeDropdown();
 
 
-//Accessing the HTML element for the total price. 
-
-let totalPriceElement = document.getElementById('totalPrice');
-
-
-/*
-Accessing the glazingPrice which is the price adaptation after the user selects a glazing option.
-Updating the price using the updatePrice function nested inside.  
-*/
-
+//Calculating the glazingPrice which is the price adaptation after the user selects a glazing option.
+//This function calls the updatePrice function.  
 function glazingChange() {
-    glazingPrice = parseFloat(this.value);
+    for (let i = 0; i < glazingOptions.length; i++) {
+        if (glazingOptions[i].option === glazingOptionsElement.value) {
+            glazingPrice = glazingOptions[i].priceAdaptation;
+        }
+    }
     console.log("glazing price: " + glazingPrice)
     updatePrice();
-
 }
+glazingOptionsElement.addEventListener('change', glazingChange);
 
-/*
-Accessing the packSizePrice which is the price adaptation after the user selects a pack size.
-Updating the price using the updatePrice function nested inside.  
-*/
 
+//Calculating the packSizePrice which is the price adaptation after the user selects a pack size.
+//This function calls the updatePrice function.  
 function packSizeChange() {
-    packSizePrice = parseFloat(this.value);
+    for (let i = 0; i < packSizeOptions.length; i++) {
+        if (packSizeOptions[i].size === parseFloat(packSizeOptionsElement.value)) {
+            packSizePrice = packSizeOptions[i].priceAdaptation;
+        }
+    }
     console.log("pack size price: " + packSizePrice)
     updatePrice();
-
 }
+packSizeOptionsElement.addEventListener('change', packSizeChange);
 
 
 //Calculating the totalPrice and updating the total price on the product details page.  
-
+let totalPriceElement = document.getElementById('totalPrice');
 function updatePrice() {
     let totalPrice = (basePrice + glazingPrice) * packSizePrice;
-    console.log("total price: " + totalPrice);
+    console.log("total price: " + totalPrice.toFixed(2));
     totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
 }
 
 
-//Accessing the HTML element for the header and updating the header text with the name of the cinnamon roll. 
-
+//Updating the header text with the name of the cinnamon roll. 
 let productDetailHeaderElement = document.getElementById('product-detail-header');
 productDetailHeaderElement.innerText = rollType + " Cinnamon Roll";
 
 
 //Updating the product image.
-
 let productDetailImageElement = document.querySelector('.product-image-large');
 productDetailImageElement.src = '../assets/products/' + rolls[rollType]["imageFile"];
 
 
 //Updating the base price.
-
 let productDetailBasePrice = rolls[rollType]["basePrice"];
 totalPriceElement.innerText = "$" + productDetailBasePrice;
 
 
 //Accessing the HTML element for the add to cart button. 
-
 let addToCartButtonElement = document.getElementById('add-to-cart-btn');
 
 
-/*
-Capturing the current glaze and current pack size by getting the text of the currently selected option. 
-Creating an instance of the class Roll which contains the current product information.
-Pushing the new cart item into the cart array. 
-*/
+//Capturing the current glaze and current pack size by getting the text of the currently selected option. 
+//Creating an instance of the class Roll which contains the current product information.
+//Pushing the new cart item into the cart set. 
 
 function addToCart() {
     let currentGlaze = glazingOptionsElement.options[glazingOptionsElement.selectedIndex].text;
     let currentPackSize = packSizeOptionsElement.options[packSizeOptionsElement.selectedIndex].text;
     let newCartItem = new Roll (rollType, currentGlaze, currentPackSize, basePrice);
-    cart.push(newCartItem);
+    cart.add(newCartItem);
+    saveToLocalStorage();
     console.log(cart);
 }
-
-
-/*
-Calling the functions that populate the drop down menus.
-Adding event listeners which call the functions glazingChange, packSizeChange, and addToCart when the respective event occurs.
-*/
-
-populateGlazingDropdown();
-populatePackSizeDropdown();
-glazingOptionsElement.addEventListener('change', glazingChange);
-packSizeOptionsElement.addEventListener('change', packSizeChange);
 addToCartButtonElement.addEventListener('click', addToCart)
 
 

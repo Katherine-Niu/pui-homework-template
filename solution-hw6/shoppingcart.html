@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bun Bun Bakeshop</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+    <script defer src="./js/cart.js"></script>
+  </head>
+  <body>
+    <div class="header"> 
+      <a href="./index.html"> <img src="../assets/logo/logo-01.svg" class="logo"> </a>
+      <div class="header-right"> 
+        <nav>
+          <div class="nav-link">
+            <a href="./index.html">Products</a>
+          </div>
+          <div class="nav-link-selected">
+            <a href="./shoppingcart.html">Cart</a>
+          </div>
+        </nav>
+        <h1>Our hand-made cinnamon rolls</h1>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="shopping-cart-main">
+        <template id="cart-template">
+          <div class="shopping-cart-content">
+            <div class="shopping-cart-item">
+              <div class="shopping-cart-image-remove">
+                <img class="shopping-cart-image">
+                <p class = "remove-btn">Remove</p>
+              </div>
+              <div class="shopping-cart-details">
+                <div class="details-text"> 
+                  <p class = "type"></p>
+                  <p class = "glazing"></p>
+                  <p class = "packSize"></p>
+                </div>
+                <p class = "price"></p>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="checkout-section">
+        <p>Total</p>
+        <div class="checkout-section-right">
+          <p id="total-cart-price"></p>
+          <button type="submit">Check Out</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
