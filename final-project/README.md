@@ -126,31 +126,61 @@ Remember to keep track of your prompts and usage for [FP4 writeup](#part-6-gener
 
 ## Project Description
 
-Briefly restate your motivation and a short description of your project.
+The goal is to create a fun quiz to help people discover new perfumes. The quiz will contain a series of questions that are meant to be playful and evocative. Based on the user's answers, the website will generate a recommended fragrance. For the recommended fragrance, there will be a list of notes and an explanation for why that fragrance was chosen. The user can also see all of their answers to the quiz questions and change their answers to generate a different recommended fragrance.
+
+Users have the option of exploring the "fragrance wall". This will be another page in the website which shows all of the fragrances in the data set according to the fragrance categories. Clicking on a specific fragrance will open up information about the fragrance.
+
+The data set can be a set of fragrances from a single fragrance brand, a set of fragrances by a single perfumer, or some internet list of "top 50 perfumes of the 2020s". Information about fragrances are publicly available on the fragrance database Fragrantica.
 
 ## High-Fi Prototypes
 
 ### *Prototype 1*
 
-![title for prototype1](images/prototype1.png)
+![title for prototype1](images/FP21.0.png)
 
-A brief description and summary of the user feedback (\<100 words, 2 images) 
+Good visibility of system status. Participants knew which question they were on and how many were left. The effects for the hover state and selected state gave the participants feedback that the system was responding to their actions. One participant thought that selecting an answer would take her directly to the next question before she noticed the next button because she was used to online quizzes having this kind of interaction pattern. Another participant was unsure of whether she was supposed to select one answer or multiple because the question suggests selecting one answer but the prototype enabled multiple selections. 
+
+
+
+![title for prototype1](images/FP21.2.png)
+
+Participants understood that they should click on the circle to select the answer. However they associate this type of selection pattern with a slider, but found that the selection doesn’t function exactly the way a slider would function (i.e. you select by clicking not sliding). 
 
 ### *Prototype 2*
 
+![title for prototype1](images/FP21.5.png)
+
+One participant asked if there could be a way to show a more granular breakdown of the scent categories, similar to how they’re depicted on a fragrance wheel. She also asked if there could be a way to display the categories as a spectrum (e.g. more floral vs. less floral) because she associates quadrants with spectrums and currently the quadrants do not represent a spectrum.
+
+
+![title for prototype1](images/FP21.4.png)
+
+Participants wanted to see a visual representation of the notes in the fragrance, not just a text description. They thought that there should be more continuity between the individual fragrance page and the fragrance wall. Currently, the category that the fragrance falls under is only mentioned in the fragrance wall, but not mentioned in the individual fragrance page. 
 …
 
 ## Usability Test
 
-Discuss the user feedback you got during the evaluation / usability test (\~300 words). Indicate which feedback you implemented, inspired new directions, or otherwise influenced your final design. 
+User feedback that I implemented in my design:
+
+1. One participant mentioned that the fragrance notes is something that she always looks for when browsing fragrance online. Currently, the only description provided is a block of text, which users typically don’t read. In my iteration, I added a list of notes to the individual fragrance page. Each note has a colored circle next to it symbolizing the note (e.g. brown for vetiver). 
+2. One participant mentioned that the only time that she sees any mention of the fragrance’s category is on the fragrance wall. She thinks it would be useful to have this information on the individual fragrance page as well. In my iteration, I added the fragrance category to the individual fragrance page to make a connection between this page and the fragrance wall. 
+3. I added more granular categories to the fragrance wall. 
+4. I got rid of the quadrant in the fragrance wall page and decided to have each fragrance category stacked on top of each other.
 
 ## Updated Designs
 
 Show screenshots of your updated design based on the user feedback (\<100 words, \~2 images).
+![title for prototype1](images/FP21.6.png)
+
+![title for prototype1](images/FP2A1.7.png)
 
 ## Feedback Summary
 
 Summarize the feedback you received in the lab session and discuss how it influenced your design (\~300 words). 
+
+Marshall suggested that I stick with single-select quiz questions and use a static data set to keep the scope of the project manageable. Originally, I considered creating multiple-select quiz questions, but I decided to stick with single-select for now. 
+
+Emme suggested that I ask questions that are not too abstract but not too literal either. She suggested that the questions can be metaphorical, so that instead of directly asking what notes someone likes, the quiz can ask them to choose a scene that resonates with them and the scene can represent something related to fragrance. Originally, I wanted to make the questions super abstract, but I decided to make them more grounded in reality.
 
 ## Milestones
 
@@ -163,7 +193,7 @@ Outline weekly milestones to plan your expected implementation progress until th
   - [ ] ...
   
 - [ ] Week 10 Nov 4 \- Nov 8:   
-  - [ ] FP2 due
+  - [X] FP2 due
 
 - [ ] Week 11 Nov 11 \- Nov 15:  
 - [ ] Week 12 Nov 18 \- Nov 22:   
@@ -182,6 +212,8 @@ List the JS libraries and other components (if applicable) that you plan to use.
 ## Generative AI Use Plan
 
 Outline how you plan to use Generative AI tools to aid in the implementation (\~300 words).
+
+I aim to use chat GPT to generate ideas for quiz questions and generate the user description in the perfume recommendations page. I will obtain fragrance descriptions from online sources but I might use chat gpt to make the descriptions meet a certain length. I can also ask chat gpt for help with creating specific elements or interactions in javascript, css, and html. Chat GPT is good for generating copy for the website and it can be a good starting point for writing code. Using gen AI responsibly means that I need to be able to understand whatever code they write and double check with other sources such as w2school for accuracy. It also means that I need to cite whenever I use it.  
 
 ### *Tool Use*
 
