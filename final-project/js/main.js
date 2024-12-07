@@ -17,26 +17,26 @@ const questions = [
     },*/
   ];
 
-const fragrancesAll = [
+const fragranceNames = [
     {
         name: "fragranceA",
         values: '["water","garden","reggae"]',
-        description: "",
-        family: ""
     },
     {
         name: "fragranceB",
         values: '["water","garden","rock"]',
-        description: "",
-        family: ""
     },
     {
         name: "fragranceC",
         values: '["water","garden","jazz"]',
-        description: "",
-        family: ""
     }
 ];  
+
+const fragranceDescriptions = 
+  {
+    "fragranceA": {description: "description of fragranceA", imageFile: "air.jpeg"}, 
+    "fragranceB": {description: "description of fragranceB", imageFile: "earth.jpeg"}
+  }
 
 
 const quizProgress = document.getElementById("progress");
@@ -87,27 +87,69 @@ let fragranceResult = "";
 function calculateResult() {
     userAnswersString = JSON.stringify(userAnswers)
     console.log(userAnswersString)
-    for (let i=0; i<fragrancesAll.length; i++) {
-        if (fragrancesAll[i].values === userAnswersString) {
-            fragranceResult = fragrancesAll[i].name
-            console.log("Fragrance result" + fragranceResult);
+    for (let i=0; i<fragranceNames.length; i++) {
+        if (fragranceNames[i].values === userAnswersString) {
+            fragranceResult = fragranceNames[i].name
+            console.log("Fragrance result " + fragranceResult);
             return fragranceResult;
 
         }
     }
 
 }
-   
+
+let fragranceDescription = "";
+
+function calculateDescription() {
+  fragranceDescription = fragranceDescriptions[fragranceResult].description
+  return fragranceDescription;
+}
+
+/*
+function calculateDescription() {
+  for (let i=0; i<fragrancesAll.length; i++) {
+    if (fragrancesAll[i].values === userAnswersString) {
+      fragranceDescription = fragrancesAll[i].description
+      console.log("Fragrance description " + fragranceDescription)
+      return fragranceDescription;
+    }
+  }
+}
+*/
+
+function calculateImageFile() {
+  fragranceImageFile = fragranceDescriptions[fragranceResult].imageFile
+}
 
 function endQuiz(){
     quizContainer.classList.add('hide')
     resultsContainer.classList.remove('hide');
-    resultsContainer.innerHTML = `
-      <h2>Quiz Completed!</h2>
-      <p>Your result is ${fragranceResult}</p>
-      <button onclick="restartQuiz()">Restart Quiz</button>`;
+    
     calculateResult();
-    console.log("end quiz " + fragranceResult);
+    calculateDescription();
+    calculateImageFile();
+    /*
+    const nameElement = document.createElement('p');
+    nameElement.textContent = fragranceResult;
+    fragranceTextElement.appendChild(nameElement);
+    
+    
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = "hi";
+    */
+    resultsContainer.innerHTML = `
+    <h2>Quiz Completed!</h2>
+    <div class="fragranceResultContent">
+      <div class="fragranceText">
+        <p>Your result is ${fragranceResult}</p>
+        <p>Description is ${fragranceDescription}</p>
+      </div>
+      <img class="fragranceImage" src="../final-project/page-1-images/${fragranceImageFile}">
+    </div>
+    <button onclick="restartQuiz()">Restart Quiz</button>`;
+
+
+    console.log("end quiz " + fragranceResult + " " + fragranceDescription);
     
 };
 

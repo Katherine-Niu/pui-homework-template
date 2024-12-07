@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style2.css" />
-    <title>Quiz App</title>
+    <title>Results Page</title>
   </head>
   <body>
     <div class="header-section"> 
@@ -28,6 +28,15 @@
         <div class="answer-container" id="answerContainer"></div>
       </div>
       <div class="results" id="results">
+        <h2>Quiz Completed!</h2>
+        <div class="fragranceResultContent">
+            <div class="fragranceText">
+                <p>Your result is FragranceA</p>
+                <p>Description is Description</p>
+            </div>
+            <img class="fragranceImage" src="../final-project/page-1-images/${fragranceImageFile}">
+        </div>
+    <button onclick="restartQuiz()">Restart Quiz</button>
       </div>
       <div class="bottom-section" id="bottom-selection">
         <nav class="bottom-nav"> 
@@ -43,7 +52,5 @@
       </div>
     </div>
     
-
-    <script src="./js/main.js"></script>
   </body>
 </html>
