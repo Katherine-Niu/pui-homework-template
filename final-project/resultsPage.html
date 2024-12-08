@@ -11,13 +11,7 @@
       <nav>
         <ul class="top-nav">
           <li>
-            <a href="./index.html">Homepage</a>
-          </li>
-          <li>
             <a href="./index.html">Fragrance Quiz</a>
-          </li>
-          <li>
-            <a href="./index.html">Fragrance Wall</a>
           </li>
         </ul>
       </nav>
@@ -28,27 +22,66 @@
         <div class="answer-container" id="answerContainer"></div>
       </div>
       <div class="results" id="results">
+
         <h2>Quiz Completed!</h2>
         <div class="fragranceResultContent">
-            <div class="fragranceText">
-                <p>Your result is FragranceA</p>
-                <p>Description is Description</p>
+            <div class="fragranceImageFrame">
+                <img src="../final-project/fragrance-images/flaming-creature.png">
             </div>
-            <img class="fragranceImage" src="../final-project/page-1-images/${fragranceImageFile}">
+            <div class="fragranceText">
+                <p>Marissa Zappas</p>
+                <p>Flaming Creature</p>
+                <p>Flaming Creature is a narcotic, hazy ode in fragrance to Flaming Creatures (1963) by American director Jack Smith (1932-1989), an entrancingly disjointed film inspiring this scent’s smoldering freshness. 
+                    It produces subtle smoke, while scenes of wilting jasmine flash before your eyes, encouraging a surrender to its flickering hallucination. 
+                </p>
+                <div class=fragranceDetails>
+                    <div>
+                        <p>Fragrance Family</p>
+                        <p>Spicy</p>
+                    </div>
+                    <div>
+                        <p>Notes</p>
+                        <p>Pink peppercorn, Juniper, Orange Ring Pop, 
+                        Night Blooming Jasmine, Wormwood, Sandalwood, 
+                        Cedarwood, Smoke, Patchouli, Rum.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="exploreAnswersSection">
+                <div class="exploreQuestion">
+                    <p>Question 1</p>
+                    <div class="yourAnswer">
+                        <p>Your Answer</p>
+                        <p>Water</p>
+                    </div>
+                    <div class="alternativeAnswers">
+                        <p>Try a Different Answer</p>
+                        <div>
+                            <p>Earth</p>
+                            <p>Fire</p>
+                            <p>Water</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="exploreQuestion">
+                    <p>Question 2</p>
+                    <div class="yourAnswer">
+                        <p>Your Answer</p>
+                        <p>Garden</p>
+                    </div>
+                    <div class="alternativeAnswers">
+                        <p>Try a Different Answer</p>
+                        <div>
+                            <p>Jungle</p>
+                            <p>Marketplace</p>
+                            <p>Forest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    <button onclick="restartQuiz()">Restart Quiz</button>
-      </div>
-      <div class="bottom-section" id="bottom-selection">
-        <nav class="bottom-nav"> 
-          <button class="previousBtn" id="previousBtn">
-              Previous
-          </button>
-          <span class="progress" id="progress">
-          </span>
-          <button class="nextBtn" id="nextBtn">
-              Next
-          </button>
-      </nav>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+
       </div>
     </div>
     
