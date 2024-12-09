@@ -38,36 +38,29 @@ body {
     display:flex;
     justify-content: space-between;
     flex-direction:row;
-    padding: 16px 112px 0px 112px;
+    padding: 0px;
     margin: 0px;
 }
 
-.top-nav li {
-    padding: 16px 64px;
-    list-style: none;
-    transition: all 250ms ease;
-}
-
-.top-nav li:hover {
-    color: yellow;
-    cursor: pointer;
-    transform: translateY(-1px);
-}
-
-.top-nav li:hover a {
-    text-decoration: underline;
-}
-
 .top-nav a {
+    padding: 32px 64px 16px 64px;
+    transition: all 250ms ease;
     text-decoration: none;
     color: white;
-    transition: all 250ms ease;
     font-size: 1rem;
 }
 
+.top-nav a:hover {
+    color: yellow;
+    cursor: pointer;
+    transform: translateY(-1px);
+    text-decoration: underline;
+}
+
+
 .main-content {
     margin-top: 66px;
-    padding-top: 64px;
+    padding-top: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;

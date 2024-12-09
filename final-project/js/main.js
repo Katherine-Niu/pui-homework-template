@@ -4,15 +4,15 @@
 const questions = [
     {
       question: "Which element represents your personality?",
-      possibleAnswers: [{text: "water", imageFile: "water.jpeg", value: "water"}, {text: "earth", imageFile: "earth2.jpeg", value: "earth"}, {text: "fire", imageFile: "fire.jpeg", value: "fire"}, {text: "air", imageFile: "air.jpeg", value: "air"}],
+      possibleAnswers: [{text: "water", imageFile: "water.jpeg", value: "water", altText: "a photograph of water in a swimming pool"}, {text: "earth", imageFile: "earth2.jpeg", value: "earth", altText: "a photograph of a desert with mountains and a blue sky"}, {text: "fire", imageFile: "fire.jpeg", value: "fire", altText: "a photograph of a flame from a match"}, {text: "air", imageFile: "air.jpeg", value: "air", altText: "a photograph of a puffy cloud"}],
     },
     {
       question: "Which of these scenes feels most inviting to you?",
-      possibleAnswers: [{text:"A hidden garden in early spring", imageFile:"garden.jpg", value: "garden"}, {text: "A bustling marketplace filled with spices", imageFile: "spices.jpeg", value: "marketplace"}, {text: "A seaside cliff where waves crash below", imageFile: "seaside.jpg", value: "jungle"}, {text: "A mysterious forest with moss-covered trees", imageFile: "forest.jpeg", value: "forest"}],
+      possibleAnswers: [{text:"A hidden garden in early spring", imageFile:"garden.jpg", value: "garden", altText: "a photograph of a Japanese-style garden"}, {text: "A bustling marketplace filled with spices", imageFile: "spices.jpeg", value: "marketplace", altText: "a photograph of containers filled with spices"}, {text: "A lush jungle buzzing with life", imageFile: "jungle.jpeg", value: "jungle", altText: "a photograph of a lush green jungle"}, {text: "A mysterious forest with moss-covered trees", imageFile: "forest.jpeg", value: "forest", altText: "a photograph of a redwood forest"}],
     },
     {
       question: "If your life had a soundtrack, which genre would it be?",
-      possibleAnswers: [{text: "Reggae beats, relaxed and rhythmic", imageFile:"reggae.jpeg", value: "reggae"}, {text: "Classic rock anthems, bold and unapologetic", imageFile: "classic-rock.jpg", value: "rock"}, {text: "Smooth jazz, harmonic and sophisticated", imageFile: "jazz.jpeg", value: "jazz"}, {text: "Hip-hop records, poetic and expressive", imageFile: "hip-hop.jpg", value: "pop"}],
+      possibleAnswers: [{text: "Reggae beats, relaxed and rhythmic", imageFile:"reggae.jpeg", value: "reggae", altText: "cover for Bam Bam, a 1982 song by Jamaican dancehall artist Sister Nancy"}, {text: "Classic rock anthems, bold and unapologetic", imageFile: "classic-rock.jpg", value: "rock", altText: "cover of Aladdin Sane, a 1973 album by English musician David Bowie"}, {text: "Smooth jazz, harmonic and sophisticated", imageFile: "jazz.jpeg", value: "jazz", altText: "cover of Billie Holiday, a 1957 album by American jazz singer Billie Holiday"}, {text: "Pop records, dynamic and barrier-breaking", imageFile: "pop.png", value: "pop", altText: "cover of Thriller, a 1982 album by American singer and songwriter Michael Jackson"}],
     },
   ];
 
@@ -371,7 +371,7 @@ function handleQuestion(index) {
       answerContainer.innerHTML += 
       `<button class="quizAnswer" value=${answer.value}>
         <div class="image-frame">
-            <img src="../final-project/page-1-images/${answer.imageFile}">
+            <img alt="${answer.altText}" src="../final-project/page-1-images/${answer.imageFile}">
         </div>
         <p>${answer.text}</p>
         <div class="overlay"></div>
