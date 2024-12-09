@@ -118,6 +118,11 @@ https://chatgpt.com/share/67567baa-fa00-8009-9c87-01717d206957
 https://chatgpt.com/share/67567c04-1224-8009-b7e1-17e73ea961b4 
 
 
+### Accessibility Check
+
+![Wave summary](images/wave-summary.png)
+![Wave details](images/wave-details.png)
+
 ---
 
 # **FP3 \- Final Project Check-in**
