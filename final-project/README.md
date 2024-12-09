@@ -14,39 +14,61 @@ Feel free to refer to this [Markdown Cheat Sheet](https://www.markdownguide.org/
 
 Describe your website (300 words).
 
-* What is the purpose of your website?   
+* What is the purpose of your website?  
+The goal is to create a fun quiz to help people discover new fragrances. The quiz will contain a series of questions that are meant to be playful and evocative. Based on the user's answers, the website will generate a recommended fragrance. For the recommended fragrance, there will be an image, description, and notes. The user can also see all of their answers to the quiz questions and change their answers to generate a different recommended fragrance.
+
 * Who is the target audience?  
+The target audience is anyone who is interested in finding a new fragrance or learning more about fragrances in general!
+
 * What information do you convey with your website?   
-* How is it interesting and engaging? 
+I convey information about fragrances. 
+
+* How is it interesting and engaging?
+The questions are playful and provocative rather than overly utilitarian. After landing on the results page, users can change the answers to genrerate a different result. They can see how different answers lead to different results.  
 
 ## Part 2: User Interaction
 
 How a user would interact with your website? For each step, briefly but clearly state the interaction type & how we should reproduce it.
 
-1. Interaction type. Click on X on page Y / scroll on page X, etc.  
-2. 
+1. The quiz begins on the first question. The user clicks on one of the answers and the next question will show up.  
+2. After answering all of the questions, the user lands on the results page. Here, the user can click on an alternative answer to see how that would change their result. They can also click on the restart button to restart the quiz. 
 
 ## Part 3: External Tool
 
 Describe what important external tool you used (JavaScript library, Web API, animations, or other). Following the bulleted list format below, reply to each of the prompts.
 
-1. Name of tool1  
-   * Why did you choose to use it over other alternatives? (2 sentences max)  
+1. Name of tool1: GSAP (Javascript library)  
+   * Why did you choose to use it over other alternatives? (2 sentences max) 
+   I chose GSAP because I wanted a javascript library that I could use to create animations. It seemed not to hard to learn and unlike anime.js, there were tutorials on how to set it up.
    * How you used it? (2 sentences max)  
+   I used it to animate the answer buttons. After the user clicks on an answer, all of the answer buttons will rotate and fade away, and the next question loads after the animation ends. 
    * What does it add to your website? (2 sentences max)  
-2. Name of tool2
+   It serves as feedback for the user when they click on an answer and it adds a feeling of playfulness.
+
 
 ## Part 4: Design Iteration
 
 Describe how you iterated on your prototypes, if at all, including any changes you made to your original design while you were implementing your website and the rationale for the changes. (4-8 sentences max)
 
+1. In my Figma prototype, I wanted to have navigation buttons to allow the user to go back and change their answers. However, after exploring similar quizzes online, I found out that most of them jump directly to the next question after the user clicks on an answer. When I did user testing with my prototype, one participant was expecting the same thing. Whe making the real website, I eliminated the back and forth buttons. 
+2. In my Figma prototype, I wanted to show multiple fragrance recommendations on the results page. When building the real website, I realized it would add unnecessary complexity without adding new interactions, so I decided to only show 1 fragrance recommendation. 
+3. In my Figma prototype, I wanted to have a question that the user could select by sliding a slider. When building the real website, I decided to keep it simple and only have single-select multiple choice questions.
+4. During lab, Marshall suggested that I add a feature on the results page which allows the user to change their answers and generate different a result. Adding this feature offered more interactivity for the user. 
+
 ## Part 5: Implementation Challenge
 
-What challenges did you experience in implementing your website? (2-4 sentences max)
+What challenges did you experience in implementing your website? (2-4 sentences max) 
+1. Figuring out how to populate the HTML using javascript was challenging because there are many ways to do it. Oftentimes, nothing would show up on the screen and I had to figure out why. 
+2. Generating a result based on the user's answers was challenging also because I had to figure out how to capture the user's answers, how to store information about the fragrance, how to match the user's answers to a fragrance, and how to access information about the fragrance to populate the HTML.
+
 
 ## Part 6: Generative AI Use and Reflection
 
 Describe how you used Generative AI tools to create this final project (fill in the following information, write \~500 words in total).
+
+I used Chat GPT to help me generate quiz questions and answers. I used this prompt: "The goal is to create a fun quiz to help people discover new perfumes. The quiz will contain a series of questions that are meant to be playful and evocative. Based on the user's answers, the website will generate a recommended fragrance. Based on this information, can you come up with 10 quiz questions?" From ChatGPT's output, I selected the question "Which of these scenes feel most inviting to you?" To come up with more evocative responses, I provided ChatGPT with quiz content from an existing fragrance quiz that I was inspired by and asked it to come up with questions with a similar tone. That's how I came up with the question "If your life had a soundtrack, which genre would it be?" and the corresponding answers which I went back and forth with ChatGPT to fine tune. 
+
+I also asked ChatGPT "I want to code a personality quiz with 4 multiple choice questions. Each question will have 4 answers and only one answer can be chosen. The user will receive 1 perfume recommendation based on their answers. How do you write javascript code to calculate the recommendations?" It told me to assign a value to each answer and to tally the user's selections. Since my quiz was only 3 questions, it didn't make sense to tally the user's selections. I also wanted the result to be based on the specific combination of answers, not which value occurred the most, so I ended up not using ChatGPT's suggestion. Overall, I relied more on other internet resources other than Gen AI. 
 
 Document your use of all GenAI tools — ChatGPT, Copilot, Claude, Cursor, etc. using the template below. Add/Delete rows or bullet points if needed, and replace Tool1/Tool2 with the name of the tool.
 
@@ -60,49 +82,41 @@ For the following aspects of your project, edit the corresponding table cell to 
 
 | Tool Name | Ratings | design | plan | write code | debug | \_ (other?) |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Tool1 | Usage | Yes/No | Yes/No | Yes/No | Yes/No | Yes/No |
-| Tool1 | Productivity | 1~7 | 1~7 | 1~7 | 1~7 | 1~7 |
-| Tool2| Usage | Yes/No | Yes/No | Yes/No | Yes/No | Yes/No |
-| Tool2 | Productivity | 1~7 | 1~7 | 1~7 | 1~7 | 1~7 |
+| ChatGPT | Usage | Design: No | Plan: Yes | Write code: Yes | Debug: No |
+| ChatGPT | Productivity | Design: N/A | Plan: 5 | Write code: 4 | Debug: N/A | 
 
 
 ### Usage Reflection
 
 > Impact on your design and plan 
-* It matched my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example, 
-  1. Tool1: 
-  2. Tool2:
-* It did not match my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example, 
-  1. Tool1: 
-  2. Tool2:
-* GenAI tool did/did not influence my final design and implementation plan because … For example, 
-  1. Tool1: 
-  2. Tool2:
+* It matched my expectations and plan in [FP2](#generative-ai-use-plan) in that it helped me generate quiz questions and answers. For example, 
+  1. ChatGPT helped me come up with questions and answers that matched the tone that I was going after so I didn't have to write them from scratch. 
+* It did not match my expectations and plan in [FP2](#generative-ai-use-plan) in that it didn't help me write code. For example, 
+  1. I thought I would be able to use chatGPT to help me write code but the output wasn't helpful, so I ended up using other online resources and tutorials.
+* ChatGPT tool did not influence my final design and implementation plan because I didn't know how to prompt chatGPT to give me specific code suggestions and I wanted to have fun designing the website myself using inspiration from existing websites. 
 
 > Use patterns
-* I accepted the generations when …  For example, 
-  1. Tool1: this tool once suggested … and I adjusted my design according to the suggestion because … 
-  2. Tool2: 
-* I critiqued/evaluated the generated suggestions by … For example, 
-  1. Tool1: this tool once suggested … but I modified/rejected the suggestion because … 
-  2. Tool2: 
+* I accepted the generations when I asked it to generate content and I thought the content matched the tone that I was going for. For example, 
+  1. ChatGPT once suggested that I use the question "If your life had a soundtrack, which genre would it be?" and I incorporated that question because I thought it was provocative. The corresponding answers included "Reggae beats, relaxed and rhythmic."
+* I critiqued/evaluated the generated suggestions by thinking about whether or not it made sense for my project. For example, 
+  1. ChatGPT once suggested that I assign a value to each question and tally up the user's selections, but I rejected the suggestion because I wanted the quiz result to be based on the specific combination of answers, rather than value has the most counts. Given that the quiz was only 3 questions, it didn't make sense to count the user's selections. 
 
 
 > Pros and cons of using GenAI tools
 * Pros
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: It helped me come up with quiz questions and answers that matched the tone I was going after. Since the content is not the focus of the project, it helped me save time that I couuld use on writing code. 
 * Cons
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: The output won't be specific or helpful unless you prompt it the right way. Oftentimes, the output is inaccurate or nonsense. 
 
 
 ### Usage Log
 
 Document the usage logs (prompts and chat history links) for the GenAI tools you used. Some tools may not have an easy way to share usage logs, just try your best! Some instructions for different tools:
 
-1. [ChatGPT](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) / [Gemini](https://support.google.com/gemini/answer/13743730?hl=en&co=GENIE.Platform%3DDesktop): share the anonymous link to all of your chat histories relevant to this project
-2. [GitHub Copilot (VSCode)](https://code.visualstudio.com/docs/copilot/copilot-chat#:~:text=You%20can%20export%20all%20prompts%20and%20responses%20for%20a%20chat%20session%20in%20a%20JSON%20file%20with%20the%20Chat%3A%20Export%20Session...%20command%20(workbench.action.chat.export)%20in%20the%20Command%20Palette.): export chat histories relevant to this project.
+1. [ChatGPT] 
+https://chatgpt.com/share/67567baa-fa00-8009-9c87-01717d206957
+https://chatgpt.com/share/67567c04-1224-8009-b7e1-17e73ea961b4 
+
 
 ---
 
